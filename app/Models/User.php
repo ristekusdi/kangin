@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Vizir\KeycloakWebGuard\Models\KeycloakUser;
 
-class User extends Authenticatable
+class User extends KeycloakUser
 {
-    use HasFactory, Notifiable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -18,26 +16,20 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'given_name',
+        'family_name',
+        'preferred_username',
         'email',
-        'password',
+        'sub',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+     * Get the value of the model's primary key.
+     * 
+     * @return mixed
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getKey()
+    {
+        return $this->attributes['sub'];
+    }
 }
