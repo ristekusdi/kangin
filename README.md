@@ -18,6 +18,8 @@ Berikutnya jalankan perintah `composer install` dan `npm install`
 
 > Versi composer minimal versi 2.x dan npm versi 6 ke atas.
 
+Selanjutnya, jalankan perintah `php artisan key:generate`.
+
 Starter kit ini menggunakan [laravel-keycloak-web-guard](https://github.com/Vizir/laravel-keycloak-web-guard) sehingga Anda harus mengisi nilai dari variable konstan di bawah ini yang ada di dalam file `.env`.
 
 ```
