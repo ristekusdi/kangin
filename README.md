@@ -14,7 +14,9 @@ Gunakan [degit](https://github.com/Rich-Harris/degit) untuk mengunduh starter ki
 
 > Silakan install degit dengan perintah `npm install -g degit`
 
-Jalankan perintah `degit ristekusdi/tall-kit nama_aplikasi`
+Jalankan perintah `degit ristekusdi/tall-kit#main nama_aplikasi`
+
+> `main` adalah branch default dari ristekusdi/tall-kit
 
 Berikutnya jalankan perintah `cp .env.example .env` untuk membuat file `.env` dari file `.env.example`.
 
