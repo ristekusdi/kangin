@@ -8,9 +8,13 @@ Starter kit ini menggunakan [Laravel](https://laravel.com/), [Tailwind](https://
 
 Gunakan [degit](https://github.com/Rich-Harris/degit) untuk mengunduh starter kit ini.
 
-> Degit membutuhkan node js versi 6 ke atas.
+> Degit adalah sebuah package NPM untuk perancah proyek (project scaffolding). Degit lebih cepat dibandingkan perintah `git clone` karena tidak mengunduh riwayat git (.git folder).
 
-Jalankan perintah `degit gitlab:satyakresna/usdi-kit nama_aplikasi`
+> Degit membutuhkan node js versi 8 ke atas karena menggunakan perintah `async` dan `await`.
+
+> Silakan install degit dengan perintah `npm install -g degit`
+
+Jalankan perintah `degit ristekusdi/tall-kit nama_aplikasi`
 
 Berikutnya jalankan perintah `cp .env.example .env` untuk membuat file `.env` dari file `.env.example`.
 
