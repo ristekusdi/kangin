@@ -58,3 +58,31 @@ Selanjutnya tempel hasil tersebut dan jwt.io akan mengurai hasilnya menjadi sebu
 - `given_name` (nama)
 - `username`
 - `sub` (keycloak primary key)
+
+## Bisakah saya mendapatkan daftar permission dari user?
+
+Tentu. Di User model terdapat fungsi `permissions` dan membutuhkan `access_token` sebagai parameter. `access_token` didapat dari `session('_keycloak_token.access_token')`.
+
+Sintaksnya seperti ini: `auth()->user()->permissions(session('_keycloak_token.access_token'))`.
+
+> Mengapa tidak menaruh `session('_keycloak_token.access_token')` di dalam User model sehingga cukup memanggilnya dengan sintaks `auth()->user()->permissions()`?
+
+1. Sejauh ini package Keycloak yang digunakan berasal dari pihak ketiga dan mereka belum menyediakan fitur tersebut. Butuh waktu agar package tersebut mengadopsi fitur ini. Kita bisa berkontribusi di package pihak ketiga namun belum tentu mereka akan menerimanya atau mungkin butuh waktu untuk mereka melihat dan menyetujuinya. Sehingga mungkin kita perlu membuat package Keycloak sendiri untuk keperluan internal dan sifatnya open source.
+
+2. Tidak elok untuk menaruh session di dalam sebuah model karena bisa jadi model tersebut akan digunakan untuk membuat sebuah Restful API dan seperti yang kita tahu Restful API umumnya berinteraksi dengan JWT. Jadi biarkan model tetap polos seperti biasanya.
+
+## Adakah sebuah middleware yang membatasi aksi user berdasarkan permission yang mereka punya?
+
+Tentu ada. Dengan middleware `permission` kita bisa menggunakannya di route web misalnya:
+
+`Route::get('/remun-dosen/30_gaji')->middleware(['keycloak-web', 'permission:view-remun-dosen']);`
+
+`view-remun-dosen` adalah salah satu permission yang didapatkan setelah user login.
+
+Atau jika berinteraksi dengan blade gunakan sintaks berikut.
+
+```php
+@if (auth()->user()->hasPermission('view-remun-dosen', session('_keycloak_token.access_token')))
+{{ $do_something }}
+@endif
+```
