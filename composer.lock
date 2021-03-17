@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05d5b2dfe163bfc6c9ccfd1176d85020",
+    "content-hash": "98d5d3ea81e89a09d9a27f5281dc20e4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2358,6 +2358,68 @@
             "time": "2020-08-18T17:17:46+00:00"
         },
         {
+            "name": "ristekusdi/sso",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ristekusdi/sso.git",
+                "reference": "c507bd9d00b35fa0077e9993410fdd6a79e7cb61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ristekusdi/sso/zipball/c507bd9d00b35fa0077e9993410fdd6a79e7cb61",
+                "reference": "c507bd9d00b35fa0077e9993410fdd6a79e7cb61",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~7|~8",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~5|~6",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RistekUSDI\\SSO\\WebGuardServiceProvider"
+                    ],
+                    "aliases": {
+                        "SSOWeb": "RistekUSDI\\SSO\\Facades\\SSOWeb"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RistekUSDI\\SSO\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riset dan Teknologi USDI",
+                    "email": "usdi@unud.ac.id",
+                    "homepage": "https://usdi.unud.ac.id"
+                }
+            ],
+            "description": "SSO for internal Udayana projects",
+            "homepage": "https://github.com/ristekusdi/sso",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization"
+            ],
+            "support": {
+                "issues": "https://github.com/ristekusdi/sso/issues",
+                "source": "https://github.com/ristekusdi/sso/tree/v1.0"
+            },
+            "time": "2021-03-12T08:17:04+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.5",
             "source": {
@@ -4655,63 +4717,6 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
             },
             "time": "2020-07-13T06:12:54+00:00"
-        },
-        {
-            "name": "vizir/laravel-keycloak-web-guard",
-            "version": "v2.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Vizir/laravel-keycloak-web-guard.git",
-                "reference": "84f18b5464b0f643f31c43774711536c0433e190"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Vizir/laravel-keycloak-web-guard/zipball/84f18b5464b0f643f31c43774711536c0433e190",
-                "reference": "84f18b5464b0f643f31c43774711536c0433e190",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.5|^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Vizir\\KeycloakWebGuard\\KeycloakWebGuardServiceProvider"
-                    ],
-                    "aliases": {
-                        "KeycloakWeb": "Vizir\\KeycloakWebGuard\\Facades\\KeycloakWeb"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Vizir\\KeycloakWebGuard\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mário Valney",
-                    "email": "mariovalney@gmail.com"
-                }
-            ],
-            "description": "Simple Keycloak Guard to Laravel Web Routes",
-            "homepage": "https://github.com/Vizir/laravel-keycloak-web-guard",
-            "keywords": [
-                "Authentication",
-                "jwt",
-                "keycloak",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/Vizir/laravel-keycloak-web-guard/issues",
-                "source": "https://github.com/Vizir/laravel-keycloak-web-guard/tree/v2.3.2"
-            },
-            "time": "2021-01-28T00:39:44+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

@@ -14,4 +14,4 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->middleware('keycloak-web')->name('home');
+Route::get('/', [HomeController::class, 'index'])->middleware('sso-web')->name('home');

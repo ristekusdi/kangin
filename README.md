@@ -26,63 +26,16 @@ Berikutnya jalankan perintah `composer install` dan `npm install`
 
 Selanjutnya, jalankan perintah `php artisan key:generate`.
 
-Starter kit ini menggunakan [laravel-keycloak-web-guard](https://github.com/Vizir/laravel-keycloak-web-guard) sehingga Anda harus mengisi nilai dari variable konstan di bawah ini yang ada di dalam file `.env`.
+Starter kit ini menggunakan [ristekusdi/sso](https://github.com/ristekusdi/sso) sebagai gerbang otentikasi dan otorisasi sehingga Anda harus mengisi nilai dari variable konstan di bawah ini yang ada di dalam file `.env`.
 
 ```
-KEYCLOAK_BASE_URL="isi di sini"
-KEYCLOAK_REALM="isi di sini"
-KEYCLOAK_REALM_PUBLIC_KEY="isi di sini"
-KEYCLOAK_CLIENT_ID="isi di sini"
-KEYCLOAK_CLIENT_SECRET="isi di sini"
+SSO_BASE_URL="isi di sini"
+SSO_REALM="isi di sini"
+SSO_REALM_PUBLIC_KEY="isi di sini"
+SSO_CLIENT_ID="isi di sini"
+SSO_CLIENT_SECRET="isi di sini"
 ```
 
-Setelah itu jalankan perintah `php artisan serve` dan buka web aplikasi di host `http://localhost:8000`. Anda akan di arahkan ke halaman login sso keycloak dan setelah berhasil login Anda akan diarahkan ke halaman tampilan depan dashboard.
+Setelah itu jalankan perintah `php artisan serve` dan buka web aplikasi di host `http://localhost:8000`. Anda akan di arahkan ke halaman login sso dan setelah berhasil login Anda akan diarahkan ke halaman tampilan depan dashboard.
 
 > Dashboard ini diambil dari template [windmill-dashboard](https://windmill-dashboard.vercel.app/) berbasis tailwind. Sumber kode bersifat terbuka dan silakan lihat di [github.com/estevanmaito/windmill-dashboard](https://github.com/estevanmaito/windmill-dashboard)
-
-## Cara mendapatkan access token
-
-Token disimpan di dalam session `_keycloak_token`. Untuk memanggilnya cukup dengan perintah `session('_keycloak_token.access_token')`.
-
-## Cara membaca nilai dari access token
-
-Untuk membaca nilai dari access token, salin hasil dari `session('_keycloak_token.access_token')` kemudian masuk ke situs [jwt.io](https://jwt.io). 
-
-Selanjutnya tempel hasil tersebut dan jwt.io akan mengurai hasilnya menjadi sebuah objek yang mudah dimengerti.
-
-## Apa saja data yang ada di dalam `auth()->user()`?
-
-- `name` (nim + nama)
-- `email`
-- `family_name` (nip atau nim)
-- `given_name` (nama)
-- `username`
-- `sub` (keycloak primary key)
-
-## Bisakah saya mendapatkan daftar permission dari user?
-
-Tentu. Di User model terdapat fungsi `permissions` dan membutuhkan `access_token` sebagai parameter. `access_token` didapat dari `session('_keycloak_token.access_token')`.
-
-Sintaksnya seperti ini: `auth()->user()->permissions(session('_keycloak_token.access_token'))`.
-
-> Mengapa tidak menaruh `session('_keycloak_token.access_token')` di dalam User model sehingga cukup memanggilnya dengan sintaks `auth()->user()->permissions()`?
-
-1. Sejauh ini package Keycloak yang digunakan berasal dari pihak ketiga dan mereka belum menyediakan fitur tersebut. Butuh waktu agar package tersebut mengadopsi fitur ini. Kita bisa berkontribusi di package pihak ketiga namun belum tentu mereka akan menerimanya atau mungkin butuh waktu untuk mereka melihat dan menyetujuinya. Sehingga mungkin kita perlu membuat package Keycloak sendiri untuk keperluan internal dan sifatnya open source.
-
-2. Tidak elok untuk menaruh session di dalam sebuah model karena bisa jadi model tersebut akan digunakan untuk membuat sebuah Restful API dan seperti yang kita tahu Restful API umumnya berinteraksi dengan JWT. Jadi biarkan model tetap polos seperti biasanya.
-
-## Adakah sebuah middleware yang membatasi aksi user berdasarkan permission yang mereka punya?
-
-Tentu ada. Dengan middleware `permission` kita bisa menggunakannya di route web misalnya:
-
-`Route::get('/remun-dosen/30_gaji')->middleware(['keycloak-web', 'permission:view-remun-dosen']);`
-
-`view-remun-dosen` adalah salah satu permission yang didapatkan setelah user login.
-
-Atau jika berinteraksi dengan blade gunakan sintaks berikut.
-
-```php
-@if (auth()->user()->hasPermission('view-remun-dosen', session('_keycloak_token.access_token')))
-{{ $do_something }}
-@endif
-```
