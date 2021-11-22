@@ -1,32 +1,49 @@
-# USDI Kit
+# Kangin Dashboard
 
-Starter kit untuk mempercepat development aplikasi internal USDI.
+Kincir Angin dashboard dengan SSO Laravel RistekUSDI.
 
-Starter kit ini menggunakan [Laravel](https://laravel.com/), [Tailwind](https://tailwindcss.com/) dan [AlpineJS](https://github.com/alpinejs/alpine).
+> TODO: Tambahkan halaman preview.
 
-## Cara pakai
+## Persyaratan
 
-Gunakan [degit](https://github.com/Rich-Harris/degit) untuk mengunduh starter kit ini.
+- NodeJS versi >= 16
+- Composer versi 2.
+- Degit.
 
 > Degit adalah sebuah package NPM untuk perancah proyek (project scaffolding). Degit lebih cepat dibandingkan perintah `git clone` karena tidak mengunduh riwayat git (.git folder).
 
-> Degit membutuhkan node js versi 8 ke atas karena menggunakan perintah `async` dan `await`.
-
 > Silakan install degit dengan perintah `npm install -g degit`
 
-Jalankan perintah `degit ristekusdi/tall-kit#main nama_aplikasi`
+## Penggunaan Dasar
 
-> `main` adalah branch default dari ristekusdi/tall-kit
+1. Jalankan perintah 
 
-Berikutnya jalankan perintah `cp .env.example .env` untuk membuat file `.env` dari file `.env.example`.
+```bash 
+degit ristekusdi/kangin#main nama_aplikasi
+```
 
-Berikutnya jalankan perintah `composer install` dan `npm install`
+> `main` adalah branch default dari ristekusdi/kangin
 
-> Versi composer minimal versi 2.x dan npm versi 6 ke atas.
+2. Jalankan perintah untuk untuk membuat file `.env` dari file `.env.example`. 
 
-Selanjutnya, jalankan perintah `php artisan key:generate`.
+```bash 
+cp .env.example .env
+``` 
 
-Starter kit ini menggunakan [ristekusdi/sso](https://github.com/ristekusdi/sso) sebagai gerbang otentikasi dan otorisasi sehingga Anda harus mengisi nilai dari variable konstan di bawah ini yang ada di dalam file `.env`.
+3. Jalankan perintah untuk mengunduh package composer dan npm 
+
+```bash
+composer install
+npm install
+```
+
+4. Jalankan perintah 
+
+```bash 
+php artisan key:generate
+```
+
+4. Mengisi nilai dari variable konstan konfigurasi SSO di dalam file `.env`.
 
 ```
 SSO_BASE_URL="isi di sini"
@@ -36,6 +53,19 @@ SSO_CLIENT_ID="isi di sini"
 SSO_CLIENT_SECRET="isi di sini"
 ```
 
-Setelah itu jalankan perintah `php artisan serve` dan buka web aplikasi di host `http://localhost:8000`. Anda akan di arahkan ke halaman login sso dan setelah berhasil login Anda akan diarahkan ke halaman tampilan depan dashboard.
+> Untuk petunjuk lebih jelasnya silakan menuju ke [ristekusdi/sso-laravel](https://github.com/ristekusdi/sso-laravel).
 
-> Dashboard ini diambil dari template [windmill-dashboard](https://windmill-dashboard.vercel.app/) berbasis tailwind. Sumber kode bersifat terbuka dan silakan lihat di [github.com/estevanmaito/windmill-dashboard](https://github.com/estevanmaito/windmill-dashboard)
+5. Jalankan perintah untuk membuka aplikasi web di browser 
+
+```bash
+php artisan serve --port=<nomor_port>
+```
+
+> nomor_port bersifat bebas dan sesuai kebutuhan.
+
+
+## Catatan
+
+Dashboard ini diambil dari template [windmill-dashboard](https://windmill-dashboard.vercel.app/) berbasis TailwindCSS.
+
+Kami menggunakan kode tersebut untuk dimodifikasi sesuai kebutuhan internal kami. Kami ucapkan terima kasih kepada pengembang dari package tersebut.
