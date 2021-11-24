@@ -14,7 +14,7 @@ Kincir Angin dashboard dengan SSO Laravel RistekUSDI.
 
 > Silakan install degit dengan perintah `npm install -g degit`
 
-## Penggunaan Dasar
+## Cara Menjalankan
 
 1. Jalankan perintah 
 
@@ -63,6 +63,9 @@ php artisan serve --port=<nomor_port>
 
 > nomor_port bersifat bebas dan sesuai kebutuhan.
 
+## Penggunaan
+
+TBA.
 
 ## Catatan
 
