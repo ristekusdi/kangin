@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // dd(auth()->user());
+        // dd(auth()->user()->roles());
         // echo auth()->user()->username;exit;
         return view('dashboard');
     }

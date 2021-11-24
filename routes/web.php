@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,5 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->middleware('sso-web')->name('home');
+
+Route::get('/clients', [ClientController::class, 'index'])->middleware('sso-web')->name('clients.index');
