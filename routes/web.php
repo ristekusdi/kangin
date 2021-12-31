@@ -15,6 +15,6 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->middleware('sso-web')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/clients', [ClientController::class, 'index'])->middleware('sso-web')->name('clients.index');
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
