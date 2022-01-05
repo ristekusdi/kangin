@@ -9,18 +9,12 @@
         <link rel="stylesheet" href="/dashboard_assets/css/tailwind.output.css" />
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <script src="{{ asset('js/init-alpine.js') }}"></script>
-        @stack('style')
     </head>
     <body>
-        <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
-            <!-- Desktop sidebar -->
-            <x-app.sidebar></x-app.sidebar>
-            <div class="flex flex-col flex-1 w-full">
-                <x-app.header></x-app.header>
-                <main class="h-full pb-16 overflow-y-auto">
-                    {{ $slot }}
-                </main>
-          </div>
-          @stack('script')
+        <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
+            <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+                {{ $slot }}
+            </div>
+        </div>
     </body>
 </html>
