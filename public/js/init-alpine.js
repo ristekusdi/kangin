@@ -49,6 +49,7 @@ function data() {
     },
     // Modal
     isModalOpen: false,
+    isModalRoleOpen: false,
     trapCleanup: null,
     openModal() {
       this.isModalOpen = true
