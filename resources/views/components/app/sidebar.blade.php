@@ -257,6 +257,27 @@
         <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
             Kangin Dashboard
         </a>
+        <div class="px-6 mt-6 mb-3 text-sm font-semibold">
+            <div class="flex items-center text-sm">
+                <div class="relative w-8 h-8 mr-3 rounded-full block">
+                    <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82" alt=""
+                    aria-hidden="true"/>
+                </div>
+                <div>
+                    <p class="font-semibold">Jolina Angelie</p>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 flex items-center">
+                        <select
+                            class="block w-auto text-sm form-select" style="border-color: #fff; padding: 0rem 1.8rem 0rem 0rem;">
+                            <option>Administrator</option>
+                            <option>User</option>
+                        </select>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="px-6 mt-6 mb-3 text-sm font-semibold">
+            <p>Menu</p>
+        </div>
         <ul class="mt-6">
             <li class="relative px-6 py-3">
                 @if(request()->routeIs('home'))
