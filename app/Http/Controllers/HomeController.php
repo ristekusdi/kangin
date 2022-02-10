@@ -12,6 +12,10 @@ class HomeController extends Controller
         // echo auth()->user()->username;exit;
         return view('dashboard');
     }
+    public function profile()
+    {
+        return view('profile');
+    }
     public function form()
     {
         return view('form');

@@ -16,6 +16,7 @@ use App\Http\Controllers\ClientController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 Route::get('/form', [HomeController::class, 'form'])->name('form');
 Route::get('/card', [HomeController::class, 'card'])->name('card');
 Route::get('/chart', [HomeController::class, 'chart'])->name('chart');
