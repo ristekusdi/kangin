@@ -5,9 +5,9 @@
         </h2>
 
         <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-            <div class="flex items-center text-sm">
+            <div class="flex flex-nowrap items-center text-sm">
                 <!-- Avatar with inset shadow -->
-                <div class="relative w-32 h-32 mr-3 rounded-full block">
+                <div class="relative w-32 h-12 md:h-32 mr-3 rounded-full block">
                     <img class="object-cover w-full h-full rounded-full"
                         src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
                         alt="" loading="lazy" />
@@ -31,7 +31,7 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
                             </path>
                         </svg>
-                        Administrator
+                        hansburger
                     </p>
                     <p class="text-xs text-gray-600 dark:text-gray-400">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quibusdam minus perferendis amet modi placeat corrupti atque enim vel.
@@ -57,18 +57,14 @@
                 <span class="text-gray-700 dark:text-gray-400">Email</span>
                 <input
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    placeholder="mail@mail.com" />
+                    placeholder="mail@mail.com" readonly />
             </label>
 
             <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                    Role
-                </span>
-                <select
-                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                    <option>Administrator</option>
-                    <option>User</option>
-                </select>
+                <span class="text-gray-700 dark:text-gray-400">Username</span>
+                <input
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                    placeholder="Username" readonly />
             </label>
 
             <label class="block mt-4 text-sm">
