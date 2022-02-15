@@ -16,7 +16,7 @@
                 </div>
                 <div class="relative">
                     <p class="font-semibold">Hans Burger</p>
-                    <p class="text-xs text-gray-600 dark:text-gray-400 flex flex-row">
+                    <p class="text-xs text-gray-600 dark:text-gray-400 flex flex-row" style="margin-right: -3em !important;">
                         <svg class="w-4 h-4 mr-1" aria-hidden="true" fill="none" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path
